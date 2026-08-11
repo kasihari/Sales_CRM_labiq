@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900 antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent iOS zoom on input focus (font-size >= 16px). */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3
+      text-base font-semibold transition active:scale-[0.98]
+      disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-lg {
+    @apply py-4 text-lg;
+  }
+  .btn-primary {
+    @apply bg-brand text-white shadow-sm active:bg-brand-dark;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white shadow-sm active:bg-red-700;
+  }
+  .btn-success {
+    @apply bg-green-600 text-white shadow-sm active:bg-green-700;
+  }
+  .btn-ghost {
+    @apply bg-white text-slate-700 border border-slate-200 shadow-sm;
+  }
+  .card {
+    @apply rounded-2xl bg-white p-4 shadow-sm;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
+  }
+  .field {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3
+      text-base outline-none focus:border-brand focus:ring-2 focus:ring-brand/20;
+  }
+  .label {
+    @apply block text-sm font-semibold text-slate-600 mb-1;
+  }
+}
